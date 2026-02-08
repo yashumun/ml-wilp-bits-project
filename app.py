@@ -4,8 +4,10 @@ import joblib
 import os
 
 from sklearn.metrics import confusion_matrix, classification_report
-
 from notebooks.helper.commoncode import get_metrics
+import matplotlib.pyplot as plt
+import seaborn as sns
+
 
 # ---------------- PAGE CONFIG ----------------
 st.set_page_config(page_title="Mobile Price Classification", layout="wide",initial_sidebar_state="expanded")
@@ -112,7 +114,32 @@ if uploaded_file is not None:
     # ================= CONFUSION MATRIX =================
     st.subheader("Confusion Matrix")
     cm = confusion_matrix(y, y_pred)
-    st.dataframe(pd.DataFrame(cm))
+
+    fig, ax = plt.subplots(figsize=(4.5, 3.8))  # smaller figure
+
+    sns.heatmap(
+        cm,
+        annot=True,
+        fmt="d",
+        cmap="Blues",
+        cbar=False,  # remove color bar (saves space)
+        annot_kws={"size": 10},  # smaller numbers
+        linewidths=0.5,
+        linecolor='gray',
+        xticklabels=["Low", "Med", "High", "V.High"],
+        yticklabels=["Low", "Med", "High", "V.High"],
+        ax=ax
+    )
+
+    ax.set_xlabel("Predicted", fontsize=10)
+    ax.set_ylabel("Actual", fontsize=10)
+    ax.set_title("Confusion Matrix", fontsize=12)
+
+    # make tick labels smaller
+    ax.tick_params(axis='both', labelsize=9)
+
+    st.pyplot(fig, use_container_width=False)
+    plt.close(fig)
 
     # ================= CLASSIFICATION REPORT =================
     st.subheader("Classification Report")
