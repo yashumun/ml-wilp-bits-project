@@ -208,3 +208,22 @@ __marimo__/
 
 
 .idea
+
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Jupyter
+.ipynb_checkpoints/
+
+# virtual env
+.venv/
+env/
+venv/
+
+# OS
+.DS_Store
+Thumbs.db

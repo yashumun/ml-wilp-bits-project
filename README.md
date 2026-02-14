@@ -80,28 +80,26 @@ UI.
 
 ## 5. Model Comparison Table
 
-| ML Model  | Accuracy  | AUC  | Precision  |  Recall | F1 Score  | MCC  |
-|---|---|---|---|---|---|---|
-| Logistic Regression  |   |   |   |   |   |   |
-| Decision Tree  |   |   |   |   |   |   |
-|  KNN |   |   |   |   |   |   |
-| Naive Bayes  |   |   |   |   |   |   |
-|  Random Forest |   |   |   |   |   |   |
-|  XGBoost |   |   |   |   |   |   |
-                                                                   
+| ML Model | Accuracy | AUC | Precision | Recall | F1 Score | MCC |
+|---------|--------|-----|------|------|------|------|
+| Logistic Regression | 0.840 | 0.9592 | 0.8410 | 0.840 | 0.8401 | 0.7839 |
+| Decision Tree | 0.796 | 0.8650 | 0.8007 | 0.796 | 0.7969 | 0.7244 |
+| KNN | 0.624 | 0.8440 | 0.6413 | 0.624 | 0.6285 | 0.4897 |
+| Naive Bayes | 0.416 | 0.7551 | 0.4967 | 0.416 | 0.3743 | 0.3123 |
+| Random Forest | 0.812 | 0.9702 | 0.8168 | 0.812 | 0.8120 | 0.7475 |
+| XGBoost | 0.836 | 0.9795 | 0.8387 | 0.836 | 0.8357 | 0.7795 |
 
 ------------------------------------------------------------------------
 
 ## 6. Observations
-
-| **Model**               | **Observation**                                                                                                |
-|-------------------------|----------------------------------------------------------------------------------------------------------------|
-| **Logistic Regression** | Performs well as a baseline model with stable results due to linear separability of some features.             |
-| **Decision Tree**       | Faster but tends to overfit the training data, leading to slightly lower generalization performance.           |
-| **KNN**                 | Performs better after feature scaling but computationally slower for large datasets.                           |
-| **Naive Bayes**         | Fastest model but lower accuracy because the independence assumption between features is unrealistic.          |
-| **Random Forest**       | Provides strong performance due to ensemble averaging and reduces overfitting.                                 |
-| **XGBoost**             | Best performing model overall as it captures complex nonlinear relationships and optimizes errors iteratively. |
+| Model | Observation |
+|------|------|
+| Logistic Regression | Strong baseline performance and stable results across all classes. |
+| Decision Tree | Performs reasonably well but slightly prone to overfitting compared to ensembles. |
+| KNN | Lower accuracy due to sensitivity to feature distance in higher-dimensional space. |
+| Naive Bayes | Lowest performance because the feature independence assumption does not hold for this dataset. |
+| Random Forest | High accuracy and robust predictions due to ensemble averaging. |
+| XGBoost | Best overall model with highest AUC, showing strong capability to capture complex feature relationships. |
 
 
 ------------------------------------------------------------------------
@@ -124,19 +122,52 @@ The developed web application allows users to:
 
 ## 8. Project Structure
 
-    project/
+project/
+│
+├── app.py                 # Streamlit web application
+├── README.md              # Project documentation
+├── requirements.txt       # Dependencies
+├── .gitignore
+│
+├── data/
+│   ├── train.csv          # Training dataset
+│   └── links.txt
+│
+├── model/                 # Serialized trained models
+│   ├── logistic.pkl
+│   ├── decision_tree.pkl
+│   ├── knn.pkl
+│   ├── naive_bayes.pkl
+│   ├── random_forest.pkl
+│   ├── xgboost.pkl
+│   ├── scaler.pkl
+│   └── columns.pkl
+│
+└── notebooks/             # Model development & training
+    ├── jupyter_all.ipynb
+    ├── export_models.py
     │
-    ├── data/
-    ├── app.py                 # Streamlit application
-    ├── helper.py              # Metrics calculation
-    ├── model/
-    │   ├── *.pkl              # Trained models
-    │   ├── scaler.pkl
-    │   └── columns.pkl
-    ├── notebooks/            # Training and experimentation
-    │    └── export_models.py
-    ├── requirements.txt
-    └── README.md
+    ├── helper/
+    │   └── commoncode.py
+    │
+    ├── decision_tree/
+    │   └── decision_tree.py
+    │
+    ├── logistics_regression/
+    │   └── logistics_regression.py
+    │
+    ├── knn/
+    │   └── knn.py
+    │
+    ├── naive_bayes/
+    │   └── naive_bayes.py
+    │
+    ├── random_forest/
+    │   └── random_forest.py
+    │
+    └── xgboost/
+        └── xgboost.py
+
 
 ------------------------------------------------------------------------
 
@@ -165,7 +196,6 @@ The application is deployed using **Streamlit Community Cloud**.
 Live App Link: *https://ml-wilp-bits-project-yashmun.streamlit.app/*
 GitHub Repository: *https://github.com/yashumun/ml-wilp-bits-project*
 
-https://share.streamlit.io/user/yashumun
 
 ------------------------------------------------------------------------
 
