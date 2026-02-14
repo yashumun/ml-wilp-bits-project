@@ -13,7 +13,6 @@ def train_model():
     df = pd.read_csv('../data/train.csv')
     X_train, X_test, y_train, y_test, scaler, feature_columns = create_data(df)
     logistics_model=train_logistic(X_train, y_train, scaler, feature_columns)
-    get_metrics(y, y_pred, y_prob)
     decision_tree=train_dt(X_train, y_train)
     random_forest=train_rf(X_train, y_train)
     xgboost=train_xgb(X_train, y_train)
