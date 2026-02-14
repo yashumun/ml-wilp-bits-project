@@ -1,4 +1,4 @@
-# 📱 Mobile Price Range Classification --- Machine Learning Web App
+# Mobile Price Range Classification --- Machine Learning Web App
 
 ## 1. Problem Statement
 
@@ -122,52 +122,19 @@ The developed web application allows users to:
 
 ## 8. Project Structure
 
-project/
-│
-├── app.py                 # Streamlit web application
-├── README.md              # Project documentation
-├── requirements.txt       # Dependencies
-├── .gitignore
-│
-├── data/
-│   ├── train.csv          # Training dataset
-│   └── links.txt
-│
-├── model/                 # Serialized trained models
-│   ├── logistic.pkl
-│   ├── decision_tree.pkl
-│   ├── knn.pkl
-│   ├── naive_bayes.pkl
-│   ├── random_forest.pkl
-│   ├── xgboost.pkl
-│   ├── scaler.pkl
-│   └── columns.pkl
-│
-└── notebooks/             # Model development & training
-    ├── jupyter_all.ipynb
-    ├── export_models.py
+    project/
     │
-    ├── helper/
-    │   └── commoncode.py
-    │
-    ├── decision_tree/
-    │   └── decision_tree.py
-    │
-    ├── logistics_regression/
-    │   └── logistics_regression.py
-    │
-    ├── knn/
-    │   └── knn.py
-    │
-    ├── naive_bayes/
-    │   └── naive_bayes.py
-    │
-    ├── random_forest/
-    │   └── random_forest.py
-    │
-    └── xgboost/
-        └── xgboost.py
-
+    ├── data/
+    ├── app.py                 # Streamlit application
+    ├── helper.py              # Metrics calculation
+    ├── model/
+    │   ├── *.pkl              # Trained models
+    │   ├── scaler.pkl
+    │   └── columns.pkl
+    ├── notebooks/            # Training and experimentation
+    │    └── export_models.py
+    ├── requirements.txt
+    └── README.md
 
 ------------------------------------------------------------------------
 
