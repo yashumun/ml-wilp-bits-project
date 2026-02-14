@@ -92,13 +92,15 @@ UI.
 ------------------------------------------------------------------------
 
 ## 6. Observations
-- **Logistic Regression** achieved the best overall performance with very high accuracy and AUC, indicating the dataset is largely linearly separable after scaling.
-- **Random Forest** Performed very strongly, confirming ensemble models capture feature interactions effectively.
-- **XGBoost** Performed very strongly, confirming ensemble models capture feature interactions effectively.
-- **Naive Bayes** performed better than expected, suggesting certain conditional independence patterns in features.
-- **Decision Tree** performed decently but showed lower generalization compared to ensemble methods.
-- **KNN** showed the weakest performance due to the curse of dimensionality in 20-feature space.
 
+| Model | Observation |
+|------|------|
+| Logistic Regression | Highest performance; achieved the highest accuracy (97%) and the highest MCC (0.96), along with an almost perfect AUC score (0.9988). This indicates that after feature scaling, the dataset becomes close to linearly separable |
+| Random Forest | Strong ensemble model capturing feature interactions and reducing overfitting. |
+|  XGBoost  | Ensemble methods successfully captured complex feature interactions and produced stable predictions, but they did not surpass Logistic Regression, suggesting that excessive model complexity was not necessary for this dataset. |
+|  Decision Tree | Performs reasonably but prone to overfitting compared to ensembles. |
+|  Naive Bayes | Good performance but limited by independence assumption between features. |
+|  KNN | Lowest performance due to curse of dimensionality in 20-feature space. |
 
 
 ------------------------------------------------------------------------
@@ -175,14 +177,3 @@ GitHub Repository: *https://github.com/yashumun/ml-wilp-bits-project*
 -   Matplotlib & Seaborn
 -   Streamlit
 
-------------------------------------------------------------------------
-
-## 12. Conclusion
-
-This project demonstrates an end-to-end machine learning workflow
-including: data preprocessing, model training, evaluation,
-visualization, and deployment as an interactive web application.
-
-Among all models, ensemble methods (Random Forest and XGBoost) achieved
-the highest performance due to their ability to capture nonlinear
-feature interactions and reduce overfitting.
