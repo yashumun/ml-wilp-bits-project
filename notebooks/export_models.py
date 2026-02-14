@@ -1,16 +1,16 @@
-from notebooks.decision_tree.decision_tree import train_dt
-from notebooks.helper.commoncode import create_data, get_metrics
-from notebooks.knn.knn import train_knn
-from notebooks.logistics_regression.logistics_regression import train_logistic
-from notebooks.naive_bayes.naive_bayes import train_nb
-from notebooks.random_forest.random_forest import train_rf
-from notebooks.xgboost.xgboost import train_xgb
+from helper.commoncode import create_data, get_metrics
+from logistics_regression import train_logistic
+from decision_tree import train_dt
+from random_forest import train_rf
+from xgboost_lcl import train_xgb
+from knn import train_knn
+from naive_bayes import train_nb
 import pandas as pd
 import os,joblib
 
 def train_model():
     # prepare dataset (split + scaling from commoncode)
-    df = pd.read_csv('../data/train.csv')
+    df = pd.read_csv('./data/train.csv')
     X_train, X_test, y_train, y_test, scaler, feature_columns = create_data(df)
     logistics_model=train_logistic(X_train, y_train, scaler, feature_columns)
     decision_tree=train_dt(X_train, y_train)

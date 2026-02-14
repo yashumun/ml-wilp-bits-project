@@ -80,26 +80,25 @@ UI.
 
 ## 5. Model Comparison Table
 
-| ML Model | Accuracy | AUC | Precision | Recall | F1 Score | MCC |
-|---------|--------|-----|------|------|------|------|
-| Logistic Regression | 0.840 | 0.9592 | 0.8410 | 0.840 | 0.8401 | 0.7839 |
-| Decision Tree | 0.796 | 0.8650 | 0.8007 | 0.796 | 0.7969 | 0.7244 |
-| KNN | 0.624 | 0.8440 | 0.6413 | 0.624 | 0.6285 | 0.4897 |
-| Naive Bayes | 0.416 | 0.7551 | 0.4967 | 0.416 | 0.3743 | 0.3123 |
-| Random Forest | 0.812 | 0.9702 | 0.8168 | 0.812 | 0.8120 | 0.7475 |
-| XGBoost | 0.836 | 0.9795 | 0.8387 | 0.836 | 0.8357 | 0.7795 |
+| Model | Accuracy | AUC | Precision | Recall | F1 Score | MCC |
+|------|------|------|------|------|------|------|
+| Logistic Regression | 0.970 | 0.9988 | 0.9705 | 0.970 | 0.9700 | 0.9602 |
+| Decision Tree | 0.830 | 0.8867 | 0.8297 | 0.830 | 0.8298 | 0.7734 |
+| KNN | 0.525 | 0.7625 | 0.5631 | 0.525 | 0.5305 | 0.3724 |
+| Naive Bayes | 0.830 | 0.9634 | 0.8358 | 0.830 | 0.8322 | 0.7738 |
+| Random Forest | 0.940 | 0.9887 | 0.9423 | 0.940 | 0.9402 | 0.9206 |
+| XGBoost | 0.940 | 0.9964 | 0.9409 | 0.940 | 0.9403 | 0.9201 |
 
 ------------------------------------------------------------------------
 
 ## 6. Observations
-| Model | Observation |
-|------|------|
-| Logistic Regression | Strong baseline performance and stable results across all classes. |
-| Decision Tree | Performs reasonably well but slightly prone to overfitting compared to ensembles. |
-| KNN | Lower accuracy due to sensitivity to feature distance in higher-dimensional space. |
-| Naive Bayes | Lowest performance because the feature independence assumption does not hold for this dataset. |
-| Random Forest | High accuracy and robust predictions due to ensemble averaging. |
-| XGBoost | Best overall model with highest AUC, showing strong capability to capture complex feature relationships. |
+- **Logistic Regression** achieved the best overall performance with very high accuracy and AUC, indicating the dataset is largely linearly separable after scaling.
+- **Random Forest** Performed very strongly, confirming ensemble models capture feature interactions effectively.
+- **XGBoost** Performed very strongly, confirming ensemble models capture feature interactions effectively.
+- **Naive Bayes** performed better than expected, suggesting certain conditional independence patterns in features.
+- **Decision Tree** performed decently but showed lower generalization compared to ensemble methods.
+- **KNN** showed the weakest performance due to the curse of dimensionality in 20-feature space.
+
 
 
 ------------------------------------------------------------------------
@@ -126,12 +125,13 @@ The developed web application allows users to:
     │
     ├── data/
     ├── app.py                 # Streamlit application
-    ├── helper.py              # Metrics calculation
     ├── model/
     │   ├── *.pkl              # Trained models
     │   ├── scaler.pkl
     │   └── columns.pkl
     ├── notebooks/            # Training and experimentation
+    |    ├── helper/              # Metrics calculation
+    |    |      |_commoncode.py
     │    └── export_models.py
     ├── requirements.txt
     └── README.md

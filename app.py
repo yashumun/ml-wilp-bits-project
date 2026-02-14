@@ -11,7 +11,7 @@ import seaborn as sns
 
 # ---------------- PAGE CONFIG ----------------
 st.set_page_config(page_title="Mobile Price Classification", layout="wide",initial_sidebar_state="expanded")
-st.title("📱 Mobile Price Classification Dashboard")
+st.title("Mobile Price Classification Dashboard")
 
 st.write("Validate trained machine learning models on uploaded dataset.")
 

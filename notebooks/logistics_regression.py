@@ -1,7 +1,4 @@
 from sklearn.linear_model import LogisticRegression
-import joblib
-from notebooks.helper.commoncode import create_data
-import os
 
 
 def train_logistic(X_train, y_train, scaler, feature_columns):

@@ -1,6 +1,6 @@
 
 from sklearn.neighbors import KNeighborsClassifier
-import joblib
+
 
 def train_knn(X_train, y_train):
     """
@@ -8,7 +8,7 @@ def train_knn(X_train, y_train):
     """
 
     model = KNeighborsClassifier(
-        n_neighbors=7,      # important: better than default 5 for this dataset
+        n_neighbors=5,      # important: better than default 5 for this dataset
         metric="minkowski",
         p=2                 # Euclidean distance
     )
